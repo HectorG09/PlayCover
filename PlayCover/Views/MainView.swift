@@ -77,6 +77,7 @@ struct MainView: View {
                         }
                     }
                     .frame(minWidth: 150)
+                    .glassSidebarBackground()
                     .toolbar {
                         ToolbarItem { // Sits on the left by default
                             Button {

@@ -172,10 +172,8 @@ struct StoreAppConditionalView: View {
                         .foregroundColor(.secondary)
                 }
                 .contentShape(Rectangle())
-                .background(RoundedRectangle(cornerRadius: 4)
-                        .fill(selected?.bundleID == app.bundleID ?
-                              selectedBackgroundColor : Color.clear)
-                        .brightness(-0.2))
+                .libraryCellBackground(isSelected: selected?.bundleID == app.bundleID,
+                                       selectedColor: selectedBackgroundColor)
             } else {
                 LazyVStack {
                     ZStack {
@@ -242,16 +240,12 @@ struct StoreAppConditionalView: View {
                         .padding(.vertical, 2)
                         .foregroundColor(selected?.bundleID == app.bundleID ?
                                          selectedTextColor : Color.primary)
-                        .background(
-                            RoundedRectangle(cornerRadius: 4)
-                                .fill(selected?.bundleID == app.bundleID ?
-                                      selectedBackgroundColor : Color.clear)
-                                .brightness(-0.2)
-                        )
                         .help(NSLocalizedString(warningMessage ?? "ipaLibrary.download", comment: ""))
                         .frame(width: 130, height: 20)
                 }
                 .frame(width: 130, height: 130)
+                .libraryCellBackground(isSelected: selected?.bundleID == app.bundleID,
+                                       selectedColor: selectedBackgroundColor)
             }
         }
         .task(priority: .background) {

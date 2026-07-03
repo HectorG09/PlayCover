@@ -386,3 +386,26 @@
 "macos.version" = "Esta aplicación se puede instalar desde Mac App Store";
 "alert.install.anyway" = "Instalar de todos modos";
 "ipaLibrary.AlphabeticalSort" = "Ordenar aplicaciones de fuente alfabéticamente";
+
+"preferences.installPath.title" = "Carpeta de aplicaciones";
+"preferences.installPath.description" = "Elige dónde se guardan los bundles de las apps instaladas. Así puedes mover los juegos a un disco externo manteniendo los datos de PlayCover en tu Mac.";
+"preferences.installPath.default" = "Predeterminada (dentro del contenedor de PlayCover)";
+"preferences.installPath.choose" = "Elegir…";
+"preferences.installPath.reset" = "Restablecer";
+"preferences.installPath.panelMessage" = "Selecciona una carpeta donde PlayCover guardará las apps instaladas.";
+"preferences.installPath.warning" = "Las apps ya instaladas en la ubicación anterior permanecerán allí hasta que se reinstalen.";
+"preferences.installPath.error.title" = "No se puede escribir en la carpeta seleccionada";
+"preferences.installPath.error.message" = "Elige una carpeta en la que PlayCover tenga permisos de escritura.";
+"preferences.downloadPath.title" = "Carpeta de descargas";
+"preferences.downloadPath.description" = "Elige dónde se guardan los archivos .ipa descargados y los archivos temporales de instalación. Configúrala en un disco externo para evitar ocupar el SSD interno de tu Mac.";
+"preferences.downloadPath.default" = "Predeterminada (directorio temporal)";
+"preferences.downloadPath.choose" = "Elegir…";
+"preferences.downloadPath.reset" = "Restablecer";
+"preferences.downloadPath.panelMessage" = "Selecciona una carpeta donde PlayCover guardará las descargas y archivos temporales de instalación.";
+
+"preferences.downloadPath.title" = "Carpeta de descargas";
+"preferences.downloadPath.description" = "Elige dónde se guardan las descargas temporales de .ipa y las carpetas de trabajo de instalación. Útil para mantener archivos grandes en un disco externo.";
+"preferences.downloadPath.default" = "Predeterminada (carpeta temporal del sistema)";
+"preferences.downloadPath.choose" = "Elegir…";
+"preferences.downloadPath.reset" = "Restablecer";
+"preferences.downloadPath.panelMessage" = "Selecciona una carpeta donde PlayCover descargará y extraerá los archivos IPA.";

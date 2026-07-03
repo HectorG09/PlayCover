@@ -337,3 +337,26 @@
 "alert.version.title" = "New Version Available";
 "alert.version.text" = "A new version for %@ is available. Do you want to download it?";
 
+
+"preferences.installPath.title" = "Applications Directory";
+"preferences.installPath.description" = "Choose where installed app bundles are stored. This lets you move games to an external drive while keeping PlayCover data on your Mac.";
+"preferences.installPath.default" = "Default (inside PlayCover container)";
+"preferences.installPath.choose" = "Choose…";
+"preferences.installPath.reset" = "Reset";
+"preferences.installPath.panelMessage" = "Select a folder where PlayCover will store installed apps.";
+"preferences.installPath.warning" = "Apps already installed in the previous location will stay there until reinstalled.";
+"preferences.installPath.error.title" = "Cannot write to selected folder";
+"preferences.installPath.error.message" = "Please choose a folder where PlayCover has permission to write.";
+"preferences.downloadPath.title" = "Downloads Directory";
+"preferences.downloadPath.description" = "Choose where downloaded .ipa files and temporary install files are stored. Set this to an external drive to keep downloads off your Mac's internal SSD.";
+"preferences.downloadPath.default" = "Default (temporary directory)";
+"preferences.downloadPath.choose" = "Choose…";
+"preferences.downloadPath.reset" = "Reset";
+"preferences.downloadPath.panelMessage" = "Select a folder where PlayCover will store downloaded and temporary install files.";
+
+"preferences.downloadPath.title" = "Downloads Directory";
+"preferences.downloadPath.description" = "Choose where temporary .ipa downloads and install working folders are stored. Useful for keeping large files on an external drive.";
+"preferences.downloadPath.default" = "Default (system temporary directory)";
+"preferences.downloadPath.choose" = "Choose…";
+"preferences.downloadPath.reset" = "Reset";
+"preferences.downloadPath.panelMessage" = "Select a folder where PlayCover will download and extract IPA files.";

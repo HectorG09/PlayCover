@@ -71,6 +71,7 @@ struct AppSettingsView: View {
                     }
                 }
             }
+            .glassCard(cornerRadius: 14)
             .task(priority: .userInitiated) {
                 appIcon = cache.readImage(forKey: viewModel.app.info.bundleIdentifier)
             }

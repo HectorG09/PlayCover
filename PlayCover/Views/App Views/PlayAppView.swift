@@ -171,12 +171,8 @@ struct PlayAppConditionalView: View {
                         .foregroundColor(.secondary)
                 }
                 .contentShape(Rectangle())
-                .background(
-                    RoundedRectangle(cornerRadius: 4)
-                        .fill(selected?.url == app.url ?
-                            selectedBackgroundColor : Color.clear)
-                        .brightness(-0.2)
-                    )
+                .libraryCellBackground(isSelected: selected?.url == app.url,
+                                       selectedColor: selectedBackgroundColor)
             } else {
                 LazyVStack {
                     Group {
@@ -208,12 +204,6 @@ struct PlayAppConditionalView: View {
                             .padding(.vertical, 2)
                             .foregroundColor(selected?.url == app.url ?
                                              selectedTextColor : Color.primary)
-                            .background(
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(selected?.url == app.url ?
-                                          selectedBackgroundColor : Color.clear)
-                                    .brightness(-0.2)
-                            )
                             .help(!(hasPlayTools ?? true) ? "settings.noPlayTools" : "")
                             .frame(height: 20)
                         if showStartingProgress {
@@ -225,6 +215,8 @@ struct PlayAppConditionalView: View {
                     }
                 }
                 .frame(width: 130, height: 130)
+                .libraryCellBackground(isSelected: selected?.url == app.url,
+                                       selectedColor: selectedBackgroundColor)
             }
         }
         .task(priority: .userInitiated) {

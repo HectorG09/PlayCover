@@ -15,10 +15,18 @@ public class IPA {
     }
 
     public func allocateTempDir() throws {
-        tmpDir = try FileManager.default.url(for: .itemReplacementDirectory,
-                                             in: .userDomainMask,
-                                             appropriateFor: URL(fileURLWithPath: "/Users"),
-                                             create: true)
+        if let customTempDir = PlayTools.customTempDirectory {
+            let workDir = customTempDir.appendingPathComponent(ProcessInfo().globallyUniqueString)
+            try FileManager.default.createDirectory(at: workDir,
+                                                    withIntermediateDirectories: true,
+                                                    attributes: [:])
+            tmpDir = workDir
+        } else {
+            tmpDir = try FileManager.default.url(for: .itemReplacementDirectory,
+                                                 in: .userDomainMask,
+                                                 appropriateFor: URL(fileURLWithPath: "/Users"),
+                                                 create: true)
+        }
     }
 
     public func releaseTempDir() {

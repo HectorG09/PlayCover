@@ -103,10 +103,14 @@ class DownloadApp {
 
         var tmpDir: URL?
         do {
-            tmpDir = try FileManager.default.url(for: .itemReplacementDirectory,
-                                                 in: .userDomainMask,
-                                                 appropriateFor: URL(fileURLWithPath: "/Users"),
-                                                 create: true)
+            if let customTempDir = PlayTools.customTempDirectory {
+                tmpDir = customTempDir
+            } else {
+                tmpDir = try FileManager.default.url(for: .itemReplacementDirectory,
+                                                     in: .userDomainMask,
+                                                     appropriateFor: URL(fileURLWithPath: "/Users"),
+                                                     create: true)
+            }
 
             if let tmpDir = tmpDir {
                 downloader.addDownload(url: finalURL,

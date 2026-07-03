@@ -43,6 +43,46 @@ class PlayTools {
         return playCoverPath
     }
 
+    /// Directory where downloaded `.ipa` files and temporary install working dirs are stored.
+    /// Users can override this via Settings → Install to keep large transient files off the local SSD.
+    public static var customTempDirectory: URL? {
+        resolveCustomDirectory(forKey: "CustomDownloadsDirectory")
+    }
+
+    /// Directory where installed `.app` bundles are stored.
+    /// Users can override this via Settings → Install to move games to an external drive.
+    public static var appInstallDirectory: URL {
+        let defaultDirectory = playCoverContainer.appendingPathComponent("Applications")
+        return resolveCustomDirectory(forKey: "CustomApplicationsDirectory",
+                                      defaultDirectory: defaultDirectory) ?? defaultDirectory
+    }
+
+    /// Resolves a user-configurable directory preference, creating the directory if it does not exist.
+    private static func resolveCustomDirectory(forKey key: String,
+                                               defaultDirectory: URL? = nil) -> URL? {
+        guard let customPath = UserDefaults.standard.string(forKey: key),
+              !customPath.isEmpty else {
+            return defaultDirectory
+        }
+
+        let customDirectory = URL(fileURLWithPath: customPath)
+        var isDirectory: ObjCBool = false
+        if FileManager.default.fileExists(atPath: customDirectory.path, isDirectory: &isDirectory),
+           isDirectory.boolValue {
+            return customDirectory
+        }
+
+        do {
+            try FileManager.default.createDirectory(at: customDirectory,
+                                                    withIntermediateDirectories: true,
+                                                    attributes: [:])
+            return customDirectory
+        } catch {
+            Log.shared.error(error)
+            return defaultDirectory
+        }
+    }
+
     static func installOnSystem() {
         Task(priority: .background) {
             do {
@@ -238,7 +278,7 @@ class PlayTools {
             && Macho.isMachoValidArch(playToolsPath)
     }
 
-	static func fetchEntitlements(_ exec: URL) throws -> String {
+    static func fetchEntitlements(_ exec: URL) throws -> String {
         do {
             return try Shell.run("/usr/bin/codesign", "-d", "--entitlements", "-", "--xml", exec.path)
         } catch {
@@ -252,5 +292,5 @@ class PlayTools {
                 throw error
             }
         }
-	}
+    }
 }

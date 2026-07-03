@@ -7,7 +7,7 @@ import Foundation
 
 class AppsVM: ObservableObject {
 
-    public static let appDirectory = PlayTools.playCoverContainer.appendingPathComponent("Applications")
+    public static var appDirectory: URL { PlayTools.appInstallDirectory }
 
     static let shared = AppsVM()
 

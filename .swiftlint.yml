@@ -5,6 +5,8 @@ excluded:
   - Carthage
   - Pods
   - .build
+  - DerivedData
+  - SourcePackages
 
 identifier_name:
   allowed_symbols: ['_']
