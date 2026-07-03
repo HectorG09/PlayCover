@@ -31,6 +31,22 @@
   </p>
 </div>
 
+<!-- ABOUT THIS FORK -->
+## About This Fork
+
+This is a personal fork maintained by [Redku](https://github.com/HectorG09). It contains modifications not present in the upstream PlayCover project, mainly focused on keeping large files off the local Mac SSD and fixing local build/run issues on macOS 26.
+
+### Key Changes
+
+- **Configurable Applications Directory** — installed `.app` bundles can be stored on an external drive.
+- **Configurable Downloads/Temp Directory** — downloaded `.ipa` files and temporary install working directories can be redirected to an external drive.
+- **Local PlayTools Fork** — `Cartfile` points to a local fork at `file:///Volumes/Extra/play_tools` for easier PlayTools development.
+- **macOS 26 Input Fixes** — defensive fixes in PlayTools for keyboard and trackpad input.
+- **Liquid Glass Visual Updates** — UI improvements using Liquid Glass materials.
+- **Ad-hoc Build Support** — updated the Sparkle codesign script and SwiftLint config so the project can be built and run without a paid Developer ID certificate.
+
+For the official project, see [PlayCover/PlayCover](https://github.com/PlayCover/PlayCover).
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
